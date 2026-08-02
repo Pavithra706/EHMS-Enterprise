@@ -360,3 +360,279 @@ Patient declared deceased or survival not possible.
 
 Handled according to hospital and legal protocols.
 
+# 9. Alternative Workflows
+
+## 9.1 Ambulance Case
+
+- Ambulance dispatched.
+- GPS tracking starts.
+- ETA shared with Emergency Department.
+- Trauma team prepared before arrival.
+- Patient transferred directly to Emergency Bay.
+
+---
+
+## 9.2 Walk-in Emergency
+
+- Patient arrives without ambulance.
+- Immediate triage.
+- Emergency registration.
+- Treatment begins.
+
+---
+
+## 9.3 Medico-Legal Case (MLC)
+
+Examples:
+
+- Road Traffic Accident
+- Assault
+- Gunshot Injury
+- Poisoning
+- Burns
+- Unknown Patient
+
+Workflow:
+
+- MLC flag enabled.
+- Police notification (as per hospital/legal policy).
+- Medico-legal documentation.
+- Injury photographs (where applicable).
+- Secure evidence handling.
+
+---
+
+## 9.4 Cardiac Arrest (Code Blue)
+
+Immediate activation of:
+
+- Emergency Physician
+- ICU Team
+- CPR Team
+- Defibrillator
+- Crash Cart
+
+Every event is time stamped.
+
+---
+
+## 9.5 Mass Casualty Incident (MCI)
+
+Examples:
+
+- Earthquake
+- Train Accident
+- Bus Accident
+- Industrial Disaster
+
+Workflow:
+
+- Disaster mode activated.
+- Multiple triage stations opened.
+- Additional staff notified.
+- Temporary emergency beds allocated.
+
+# 10. Exception Handling
+
+## EX-001
+
+Unknown patient.
+
+Action:
+
+Generate Temporary UHID.
+
+---
+
+## EX-002
+
+No ICU Bed Available.
+
+Action:
+
+Escalate to Hospital Administrator.
+
+Search nearby hospital availability.
+
+---
+
+## EX-003
+
+Blood unavailable.
+
+Action:
+
+Notify Blood Bank.
+
+Activate emergency donor list.
+
+---
+
+## EX-004
+
+Operation Theatre occupied.
+
+Action:
+
+Reserve next available OT.
+
+Notify Surgery Team.
+
+---
+
+## EX-005
+
+Ambulance delay.
+
+Action:
+
+Update ETA.
+
+Notify Emergency Department.
+
+Prepare alternate transport if necessary.
+
+---
+
+## EX-006
+
+Patient expires.
+
+Action:
+
+Generate death record.
+
+Notify family.
+
+Complete medico-legal documentation if applicable.# 11. Business Rules
+
+BR-001
+
+Life-saving treatment shall never be delayed due to payment.
+
+---
+
+BR-002
+
+Emergency patients bypass OPD workflow.
+
+---
+
+BR-003
+
+Every emergency case shall have a unique Emergency Case ID.
+
+---
+
+BR-004
+
+Every triage decision shall be digitally recorded.
+
+---
+
+BR-005
+
+Every emergency medication shall be logged.
+
+---
+
+BR-006
+
+All trauma cases shall generate audit logs.
+
+---
+
+BR-007
+
+MLC cases shall have restricted access.
+
+---
+
+BR-008
+
+All emergency timestamps shall be immutable.
+
+# 12. Notifications
+
+Automatic notifications are generated for:
+
+- Ambulance dispatched
+- Ambulance ETA updated
+- Patient arrived
+- Trauma team activated
+- Code Blue activated
+- Blood requested
+- Emergency surgery required
+- ICU admission
+- Family notification
+- Patient transferred
+
+# 13. Future Database Entities
+
+- EmergencyCase
+- TraumaCase
+- TriageAssessment
+- EmergencyTreatment
+- Ambulance
+- AmbulanceLocation
+- CodeBlueEvent
+- MLCRecord
+- EmergencyTransfer
+- EmergencyMedication
+- BloodRequest
+- ICUAdmission# 14. Future REST APIs
+
+POST /emergency/cases
+
+GET /emergency/cases/{id}
+
+POST /triage
+
+POST /ambulance/dispatch
+
+PUT /ambulance/location
+
+GET /ambulance/eta
+
+POST /code-blue
+
+POST /mlc
+
+POST /blood-request
+
+POST /icu-admission# 15. Future UI Screens
+
+Emergency Dashboard
+
+Trauma Dashboard
+
+Ambulance Dashboard
+
+Live GPS Tracking
+
+Triage Screen
+
+Code Blue Screen
+
+Emergency Doctor Dashboard
+
+Emergency Nurse Dashboard
+
+Emergency Analytics# 16. Key Performance Indicators
+
+- Door-to-Doctor Time
+- Ambulance Response Time
+- Average Triage Time
+- Average Emergency Treatment Time
+- ICU Transfer Time
+- OT Preparation Time
+- Code Blue Response Time
+- Emergency Mortality Rate
+- Trauma Survival Rate# 17. Approval
+
+| Role | Status |
+|------|--------|
+| Emergency Department Head | Pending |
+| Chief Medical Officer | Pending |
+| Hospital Administrator | Pending |
+| System Architect | Pending |
