@@ -438,3 +438,337 @@ The patient receives:
 The OPD visit is marked as:
 
 COMPLETED
+
+# 7. Alternative Workflows
+
+## 7.1 Follow-up Patient
+
+The patient returns for a scheduled follow-up consultation.
+
+Workflow:
+
+- Search using UHID / QR Code
+- Retrieve previous consultation
+- Skip new registration
+- OPD billing for follow-up consultation
+- Generate new token
+- Doctor reviews previous treatment
+- Update prescription
+- Schedule next follow-up if required
+
+---
+
+## 7.2 Appointment Patient
+
+Patients with prior appointments:
+
+- Appointment verified
+- Queue priority assigned
+- Registration confirmed
+- Token generated
+- Consultation proceeds
+
+---
+
+## 7.3 Insurance Patient
+
+Additional verification:
+
+- Insurance policy validation
+- Coverage verification
+- Cashless approval (if applicable)
+- Billing routed through Insurance Service
+
+---
+
+## 7.4 Corporate Patient
+
+- Employee ID verification
+- Corporate agreement validation
+- Employer billing
+- Consultation proceeds normally
+
+---
+
+## 7.5 Senior Citizen / Disabled Patient
+
+Priority queue is automatically assigned.
+
+Special assistance is provided.
+
+---
+
+## 7.6 VIP Patient
+
+Restricted visibility.
+
+Special waiting area.
+
+Priority consultation.
+
+Enhanced privacy controls.
+
+# 8. Exception Handling
+
+## EX-001
+
+Doctor unavailable.
+
+Action:
+
+- Notify Reception.
+- Assign another doctor.
+- Inform patient.
+
+---
+
+## EX-002
+
+Payment failure.
+
+Action:
+
+- Retry payment.
+- Select another payment method.
+- Hold token generation until payment succeeds.
+
+---
+
+## EX-003
+
+Barcode unreadable.
+
+Action:
+
+Search using:
+
+- UHID
+- Mobile Number
+- Aadhaar
+- QR Code
+
+---
+
+## EX-004
+
+Laboratory system unavailable.
+
+Action:
+
+- Queue investigation.
+- Notify Laboratory.
+- Alert doctor.
+
+---
+
+## EX-005
+
+Radiology delay.
+
+Action:
+
+- Notify patient.
+- Update expected completion time.
+
+---
+
+## EX-006
+
+Patient condition worsens.
+
+Action:
+
+Immediately transfer patient to Emergency Department.
+
+Generate Emergency Case ID.
+
+Notify Emergency Team.
+# 9. Business Rules
+
+BR-001
+
+Every patient shall have a Unique Hospital ID (UHID).
+
+---
+
+BR-002
+
+Every OPD visit shall create a consultation record.
+
+---
+
+BR-003
+
+Every consultation shall be digitally signed.
+
+---
+
+BR-004
+
+Only assigned doctors may modify consultation records.
+
+---
+
+BR-005
+
+Every prescription shall be electronic.
+
+---
+
+BR-006
+
+Every laboratory request shall originate from a doctor.
+
+---
+
+BR-007
+
+All referrals shall be electronically recorded.
+
+---
+
+BR-008
+
+Every patient movement shall generate an audit log.
+
+---
+
+BR-009
+
+Payment must be completed before consultation unless exempted.
+
+---
+
+BR-010
+
+Emergency patients bypass OPD billing.
+# 10. Notifications
+
+The Notification Service generates alerts for:
+
+- Token Generated
+- Queue Updated
+- Doctor Ready
+- Investigation Requested
+- Laboratory Report Ready
+- Radiology Report Ready
+- Prescription Generated
+- Medicine Ready
+- Follow-up Reminder
+- Appointment Reminder
+- Billing Completed
+
+# 11. Future Database Entities
+
+The following database tables will support OPD:
+
+- Patient
+- Appointment
+- OPDVisit
+- Consultation
+- Queue
+- Token
+- VitalSigns
+- ClinicalNote
+- Prescription
+- Referral
+- LaboratoryRequest
+- RadiologyRequest
+- Billing
+- Invoice
+- Payment
+- AuditLog# 12. Future REST APIs
+
+Patient APIs
+
+POST /patients
+
+GET /patients/{id}
+
+PUT /patients/{id}
+
+---
+
+Appointment APIs
+
+POST /appointments
+
+GET /appointments
+
+---
+
+Queue APIs
+
+POST /queue/token
+
+GET /queue/status
+
+---
+
+Consultation APIs
+
+POST /consultations
+
+GET /consultations/{id}
+
+---
+
+Prescription APIs
+
+POST /prescriptions
+
+GET /prescriptions/{id}
+
+---
+
+Referral APIs
+
+POST /referrals
+
+GET /referrals
+
+# 13. Future UI Screens
+
+Reception Dashboard
+
+Billing Dashboard
+
+Queue Dashboard
+
+Doctor Dashboard
+
+Nurse Dashboard
+
+Patient Dashboard
+
+Laboratory Dashboard
+
+Radiology Dashboard
+
+Pharmacy Dashboard
+
+Administrator Dashboard
+# 14. Key Performance Indicators (KPIs)
+
+The OPD monitors:
+
+- Average Registration Time
+- Average Waiting Time
+- Average Consultation Time
+- Average Billing Time
+- Daily OPD Count
+- Referral Rate
+- Laboratory Request Rate
+- Radiology Request Rate
+- Patient Satisfaction Score
+- Follow-up Compliance Rate
+
+# 15. Approval
+
+| Role | Status |
+|------|--------|
+| Hospital Administrator | Pending |
+| Chief Medical Officer | Pending |
+| IT Administrator | Pending |
+| System Architect | Pending |
+| Development Team | Pending |
