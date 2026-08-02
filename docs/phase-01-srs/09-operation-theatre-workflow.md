@@ -118,3 +118,239 @@ Before surgery:
 - Laboratory reports available.
 - Radiology reports available.
 
+# 6. Main Operation Theatre Workflow
+
+## Step 1 – Surgery Scheduling
+
+The treating consultant decides that surgery is required.
+
+The doctor creates a digital surgery request containing:
+
+- Patient UHID
+- Diagnosis
+- Procedure
+- Surgery Type
+- Priority
+- Expected Duration
+- Required OT Equipment
+- Required Implants
+- Blood Requirement
+
+Surgery Status:
+
+SCHEDULED
+
+---
+
+## Step 2 – OT Scheduling
+
+The OT Scheduling Service verifies:
+
+- OT Availability
+- Surgeon Availability
+- Assistant Surgeon
+- Anesthesiologist
+- OT Nurse
+- OT Technician
+- Biomedical Equipment
+- CSSD Instrument Sets
+
+The OT room is reserved.
+
+---
+
+## Step 3 – Pre-operative Preparation
+
+Before transferring the patient:
+
+- Identity Verification
+- Consent Verification
+- Laboratory Reports
+- Radiology Reports
+- Blood Availability
+- Fasting Confirmation
+- Allergy Verification
+- Implant Availability
+
+Patient Status:
+
+READY_FOR_OT
+
+---
+
+## Step 4 – Patient Transfer
+
+The patient is transported from:
+
+- Ward
+- ICU
+- Emergency
+
+to
+
+Operation Theatre.
+
+The barcode wristband is scanned before entering OT.
+
+Patient Status:
+
+IN_OPERATION_THEATRE
+
+---
+
+## Step 5 – WHO Surgical Safety Checklist
+
+The OT team performs:
+
+Before Anesthesia
+
+- Patient Identity
+- Surgical Site
+- Planned Procedure
+- Consent
+- Allergy Check
+
+Before Incision (Time-Out)
+
+- Team Introduction
+- Antibiotic Given
+- Required Equipment Available
+- Blood Available
+- Imaging Available
+
+Before Patient Leaves OT
+
+- Instrument Count
+- Sponge Count
+- Needle Count
+- Specimen Label Verification
+- Procedure Documentation Completed
+
+# 7. Surgery Procedure
+
+After anesthesia:
+
+↓
+
+Surgical Incision
+
+↓
+
+Procedure Performed
+
+↓
+
+Implants Recorded (if any)
+
+↓
+
+Blood Transfusion (if required)
+
+↓
+
+Continuous Vital Monitoring
+
+↓
+
+Procedure Completed
+
+↓
+
+Operation Notes Recorded
+
+↓
+
+Digital Signature by Surgeon
+
+↓
+
+Patient Shifted to Recovery Room
+
+# 8. Recovery Workflow
+
+After surgery:
+
+The Recovery Team monitors:
+
+- Blood Pressure
+- Pulse
+- Oxygen Saturation
+- Pain Score
+- Consciousness Level
+- Bleeding
+- Surgical Dressing
+
+Recovery decision:
+
+Stable
+
+↓
+
+Ward Transfer
+
+Critical
+
+↓
+
+ICU Transfer
+
+Further surgery required
+
+↓
+
+OT Reschedule
+
+# 9. CSSD Integration
+
+After every surgery:
+
+Used instruments
+
+↓
+
+Count Verification
+
+↓
+
+Transport to CSSD
+
+↓
+
+Cleaning
+
+↓
+
+Disinfection
+
+↓
+
+Sterilization
+
+↓
+
+Packaging
+
+↓
+
+Quality Check
+
+↓
+
+Returned to OT
+
+Every instrument set is tracked using barcode/RFID.
+
+# 10. Implant & Consumable Tracking
+
+The system records:
+
+- Implant Name
+- Manufacturer
+- Batch Number
+- Serial Number
+- Expiry Date
+- Surgeon
+- Patient UHID
+
+This information becomes part of the patient's permanent Electronic Health Record.
+
