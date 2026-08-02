@@ -354,3 +354,325 @@ The system records:
 
 This information becomes part of the patient's permanent Electronic Health Record.
 
+# 11. Alternative Workflows
+
+## 11.1 Emergency Surgery
+
+Workflow:
+
+Emergency Decision
+
+↓
+
+Emergency OT Activated
+
+↓
+
+Minimal Registration
+
+↓
+
+Immediate Surgery
+
+↓
+
+Recovery / ICU
+
+---
+
+## 11.2 Elective Surgery
+
+Workflow:
+
+OPD Consultation
+
+↓
+
+Pre-Anesthesia Checkup
+
+↓
+
+OT Booking
+
+↓
+
+Scheduled Surgery
+
+↓
+
+Recovery
+
+↓
+
+Ward
+
+---
+
+## 11.3 Day Care Surgery
+
+Applicable for:
+
+- Cataract Surgery
+- Endoscopy
+- Minor Procedures
+
+Workflow:
+
+Admission
+
+↓
+
+Procedure
+
+↓
+
+Recovery
+
+↓
+
+Same-Day Discharge
+
+# 12. Exception Handling
+
+## EX-001
+
+Surgeon unavailable.
+
+Action:
+
+- Assign alternate surgeon.
+- Reschedule surgery.
+- Notify patient.
+
+---
+
+## EX-002
+
+Blood unavailable.
+
+Action:
+
+- Notify Blood Bank.
+- Arrange emergency donor.
+- Delay elective surgery if medically appropriate.
+
+---
+
+## EX-003
+
+Biomedical equipment failure.
+
+Action:
+
+- Notify Biomedical Engineering.
+- Switch to backup equipment.
+- Escalate if surgery cannot proceed safely.
+
+---
+
+## EX-004
+
+Patient unstable before surgery.
+
+Action:
+
+- Shift patient to ICU.
+- Stabilize patient.
+- Reschedule surgery.
+
+---
+
+## EX-005
+
+Power failure.
+
+Action:
+
+- Emergency power backup activated.
+- Continue critical surgery.
+
+# 13. Business Rules
+
+BR-001
+
+Every surgery shall have a unique Surgery ID.
+
+---
+
+BR-002
+
+Digital consent is mandatory before elective surgery.
+
+---
+
+BR-003
+
+Patient identity must be verified before anesthesia.
+
+---
+
+BR-004
+
+WHO Surgical Safety Checklist is mandatory.
+
+---
+
+BR-005
+
+Instrument count shall be verified before wound closure.
+
+---
+
+BR-006
+
+Every implant shall be digitally tracked.
+
+---
+
+BR-007
+
+Operation notes shall be digitally signed by the surgeon.
+
+---
+
+BR-008
+
+Every OT event shall generate an audit log.
+
+# 14. Notifications
+
+Automatic notifications are generated for:
+
+- Surgery Scheduled
+- OT Ready
+- Patient Shifted
+- Surgery Started
+- Surgery Completed
+- Recovery Started
+- ICU Transfer
+- Ward Transfer
+- CSSD Processing Started
+- Implant Recorded
+
+# 15. Future Database Entities
+
+- Surgery
+- OperationTheatre
+- OTSchedule
+- SurgeryTeam
+- AnesthesiaRecord
+- SurgeryNote
+- RecoveryRecord
+- Implant
+- InstrumentSet
+- CSSDTracking
+- BloodTransfusion
+
+# 16. Future REST APIs
+
+POST /surgeries
+
+GET /surgeries/{id}
+
+POST /ot/schedule
+
+POST /ot/checklist
+
+POST /ot/start
+
+POST /ot/complete
+
+POST /cssd/receive
+
+POST /implants/register
+
+POST /recovery
+
+# 17. Future UI Screens
+
+OT Dashboard
+
+OT Schedule Board
+
+Recovery Dashboard
+
+CSSD Dashboard
+
+Anesthesia Dashboard
+
+Surgeon Dashboard
+
+Implant Tracking
+
+Surgical Checklist Screen
+
+# 18. Role-Based Access Control (RBAC)
+
+| Role | Permissions |
+|------|-------------|
+| Surgeon | Create surgery orders, operation notes |
+| Anesthesiologist | Record anesthesia details |
+| OT Nurse | Checklist, instrument verification |
+| CSSD Staff | Instrument sterilization tracking |
+| Biomedical Engineer | Equipment maintenance |
+| Administrator | Full access |
+
+# 19. Audit Logs
+
+The system records:
+
+- Surgery Scheduled
+- Patient Entered OT
+- Time-Out Completed
+- Surgery Started
+- Surgery Completed
+- Implant Used
+- Blood Transfusion
+- Recovery Started
+- Recovery Completed
+- CSSD Processing
+
+# 20. Key Performance Indicators
+
+- OT Utilization Rate
+- Average Surgery Duration
+- OT Turnaround Time
+- Surgery Cancellation Rate
+- Infection Rate
+- Emergency OT Response Time
+- Recovery Time
+- Instrument Sterilization Compliance
+- On-Time Surgery Percentage
+
+# 21. Future AI Features
+
+The AI module may provide:
+
+- Surgery Duration Prediction
+- OT Schedule Optimization
+- Implant Demand Forecasting
+- Infection Risk Prediction
+- Post-operative Complication Prediction
+- ICU Requirement Prediction
+- Surgical Resource Optimization
+
+# 22. Security Considerations
+
+- Role-Based Access Control (RBAC)
+- Digital Surgical Consent
+- Barcode Verification
+- Electronic Signatures
+- End-to-End Encryption
+- Complete Audit Trail
+- Secure Implant Records
+
+# 23. Approval
+
+| Role | Status |
+|------|--------|
+| Chief Surgeon | Pending |
+| OT Nursing Superintendent | Pending |
+| Chief Medical Officer | Pending |
+| Hospital Administrator | Pending |
+| System Architect | Pending |
+
