@@ -337,3 +337,390 @@ All department requests are generated electronically.
 
 Every service completion updates the patient's EHR automatically.
 
+# 9. Alternative Workflows
+
+## 9.1 Emergency Admission
+
+Patient arrives through the Emergency Department.
+
+Workflow:
+
+Emergency
+
+↓
+
+Stabilization
+
+↓
+
+Doctor Decision
+
+↓
+
+Bed Allocation
+
+↓
+
+ICU / Ward
+
+↓
+
+Admission Completed
+
+---
+
+## 9.2 Direct Admission
+
+Patients admitted directly by specialists.
+
+Workflow:
+
+Specialist Recommendation
+
+↓
+
+Admission Desk
+
+↓
+
+Billing
+
+↓
+
+Bed Allocation
+
+↓
+
+Ward
+
+---
+
+## 9.3 ICU Admission
+
+Critical patients are admitted directly to ICU.
+
+Additional requirements:
+
+- ICU Bed
+- Ventilator (if required)
+- ICU Nurse Assignment
+- Intensivist Assignment
+- Continuous Monitoring
+
+---
+
+## 9.4 Isolation Admission
+
+Applicable for infectious diseases.
+
+Workflow:
+
+Isolation Bed
+
+↓
+
+PPE Protocol
+
+↓
+
+Restricted Access
+
+↓
+
+Dedicated Nursing Team
+
+↓
+
+Isolation Monitoring
+
+---
+
+## 9.5 Insurance Admission
+
+Additional steps:
+
+- Policy Verification
+- Pre-Authorization
+- Insurance Approval
+- Coverage Confirmation
+
+Treatment starts immediately if emergency.
+
+# 10. Exception Handling
+
+## EX-001
+
+No Bed Available
+
+Action:
+
+- Search nearby wards.
+- Escalate to Bed Manager.
+- Notify Hospital Administrator.
+
+---
+
+## EX-002
+
+Insurance Rejected
+
+Action:
+
+- Notify Billing.
+- Offer Self-Pay Option.
+- Continue emergency care if required.
+
+---
+
+## EX-003
+
+Patient Condition Deteriorates
+
+Action:
+
+Immediate ICU Transfer.
+
+Notify:
+
+- ICU
+- Consultant
+- Nursing Supervisor
+
+---
+
+## EX-004
+
+Equipment Failure
+
+Action:
+
+Notify Biomedical Engineering.
+
+Assign backup equipment.
+
+---
+
+## EX-005
+
+Patient Requests Transfer
+
+Action:
+
+Doctor Approval
+
+↓
+
+Billing Clearance
+
+↓
+
+Transfer Summary
+
+↓
+
+Destination Hospital
+
+# 11. Business Rules
+
+BR-001
+
+Every admitted patient shall have exactly one active admission.
+
+---
+
+BR-002
+
+One bed shall be occupied by only one patient at a time.
+
+---
+
+BR-003
+
+Every bed transfer shall be recorded.
+
+---
+
+BR-004
+
+Medication administration requires barcode verification.
+
+---
+
+BR-005
+
+All admission orders shall be digitally signed.
+
+---
+
+BR-006
+
+Doctor rounds shall be time stamped.
+
+---
+
+BR-007
+
+Every clinical activity shall update the EHR.
+
+---
+
+BR-008
+
+Discharge requires consultant approval.
+
+---
+
+BR-009
+
+Final discharge requires billing clearance unless exempted.
+
+# 12. Notifications
+
+Automatic notifications are generated for:
+
+- Admission Confirmed
+- Bed Reserved
+- Bed Changed
+- ICU Transfer
+- OT Transfer
+- Laboratory Request
+- Radiology Request
+- Medication Ready
+- Diet Assigned
+- Doctor Round
+- Discharge Initiated
+- Billing Pending
+
+# 13. Future Database Entities
+
+- Admission
+- AdmissionHistory
+- Bed
+- Ward
+- Room
+- BedTransfer
+- NursingAssessment
+- DoctorRound
+- MedicationAdministration
+- DietOrder
+- EquipmentAssignment
+- ClinicalProgress
+- VitalSigns
+- DischargeSummary
+
+# 14. Future REST APIs
+
+POST /admissions
+
+GET /admissions/{id}
+
+POST /beds/allocate
+
+POST /beds/transfer
+
+POST /doctor-rounds
+
+POST /nursing-assessment
+
+POST /medications/administer
+
+POST /diet-orders
+
+POST /equipment/request
+
+POST /discharge
+
+# 15. Future UI Screens
+
+Admission Dashboard
+
+Ward Dashboard
+
+Bed Management
+
+Nurse Station
+
+Doctor Ward Round
+
+Medication Administration
+
+Patient Timeline
+
+Diet Dashboard
+
+Equipment Dashboard
+
+Discharge Dashboard
+
+# 16. Role-Based Access Control (RBAC)
+
+| Role | Permissions |
+|------|-------------|
+| Admission Desk | Create admission, assign ward |
+| Nurse | Record vitals, administer medication, nursing notes |
+| Doctor | Admission orders, rounds, treatment plans |
+| Consultant | Approve admission, transfers, discharge |
+| Billing Executive | View billing, generate invoices |
+| Insurance Executive | Insurance verification and approvals |
+| Administrator | Full access |
+
+# 17. Audit Logs
+
+The system records:
+
+- Admission Created
+- Bed Assigned
+- Bed Changed
+- Medication Administered
+- Doctor Orders Updated
+- Laboratory Requested
+- Radiology Requested
+- ICU Transfer
+- OT Transfer
+- Discharge Initiated
+- Discharge Completed
+
+# 18. Key Performance Indicators
+
+- Bed Occupancy Rate
+- Average Length of Stay (ALOS)
+- Bed Turnover Rate
+- Readmission Rate
+- Average Admission Time
+- Average Bed Allocation Time
+- Medication Error Rate
+- Nurse Response Time
+- Patient Satisfaction
+
+# 19. Future AI Features
+
+The AI module may provide:
+
+- Bed Occupancy Prediction
+- Patient Deterioration Prediction
+- Readmission Risk Prediction
+- ICU Requirement Prediction
+- Medication Interaction Detection
+- Clinical Decision Support
+- Early Warning Score Alerts
+
+# 20. Security Considerations
+
+- Role-Based Access Control (RBAC)
+- Multi-Factor Authentication
+- End-to-End Encryption
+- Barcode Verification
+- Complete Audit Trail
+- Automatic Session Timeout
+- Digital Signatures
+- Secure Electronic Health Records
+
+# 21. Approval
+
+| Role | Status |
+|------|--------|
+| Nursing Superintendent | Pending |
+| Chief Medical Officer | Pending |
+| Hospital Administrator | Pending |
+| System Architect | Pending |
+| Development Team | Pending |
